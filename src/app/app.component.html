@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="titulo">TARJETA DE CREDITO</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-lg-6">
+      <app-crear-tarjeta (nuevaTarjeta)="agregarTarjeta($event)"></app-crear-tarjeta>
+    </div>
+    <div class="col-lg-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Titular" [(ngModel)]="titular" [disabled]="!flagFiltro">
+        <button *ngIf="flagFiltro" class="btn btn-success" type="button" (click)="filtrarTitular()">Filtrar&nbsp;<i class="fa-solid fa-search"></i></button>
+        <button *ngIf="!flagFiltro" class="btn btn-danger" type="button" (click)="cancelarFiltro()">Cancelar&nbsp;<i class="fa-solid fa-cancel"></i></button>
+      </div>
+      <app-listar-tarjeta [listTarjetas]="listadoTarjetaCredito"></app-listar-tarjeta>
+    </div>
+  </div>
+</div>
